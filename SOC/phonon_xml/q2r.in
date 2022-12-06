@@ -1,0 +1,6 @@
+&input
+  fildyn='si.dyn.xml',
+  zasr='crystal',
+  flfrc='./espresso.ifc2'
+/
+

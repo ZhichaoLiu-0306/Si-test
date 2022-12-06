@@ -1,0 +1,46 @@
+&CONTROL
+    calculation       =    'scf' ,
+    title             =    'si' ,
+    prefix            =    'si' ,
+    verbosity         =    'high' ,
+    wf_collect        =    .TRUE. ,
+    disk_io           =    'default' ,
+    restart_mode      =    'from_scratch' ,
+    pseudo_dir        =    '/home/lzc/Documents/Si/pp' ,
+    outdir            =    './tmp' ,           ! input, temporary, output files
+    tstress           =    .TRUE. ,            ! calculate stress
+    tprnfor           =    .TRUE. ,            ! calculate force
+/
+&SYSTEM
+    ibrav             =     0 ,
+    nat               =     2 ,
+    ntyp              =     1 ,
+    ecutwfc           =     80  ,
+    occupations       =     'fixed',
+    noncolin          =     .true.,
+    lspinorb          =     .true.
+/
+&ELECTRONS
+    diago_full_acc    =     .true.              ! same accurate for Empty orbit
+    electron_maxstep  =     200 ,
+    conv_thr          =     1.0D-12 ,           ! 1D-10~1D~12
+    scf_must_converge =     .true.
+    diagonalization   =     'david' ,
+    diago_david_ndim  =     4 ,
+    mixing_mode       =     'plain' ,
+    mixing_beta       =     0.7 ,               ! for metal 0.1~0.3// default 0.7
+    mixing_ndim       =     8 ,                 ! default 8 number of iterations used in mixing scheme; metal for 12
+/
+ATOMIC_SPECIES
+Si  28.086  Si.rel-pbesol-n-nc.UPF
+ATOMIC_POSITIONS crystal
+Si   0.50  0.50  0.50
+Si   0.75  0.75  0.75
+CELL_PARAMETERS (angstrom)
+0.000000000   2.710107116   2.710107116
+2.710107116   0.000000000   2.710107116
+2.710107116   2.710107116   0.000000000
+K_POINTS {automatic}
+12 12 12 0 0 0
+
+
