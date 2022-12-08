@@ -1,0 +1,80 @@
+&allocations
+    numelements=1
+    numatoms=2
+/
+
+&crystal_info
+    name = 'Cubic Si'
+    elements="Si"
+    atomtypes=1 1
+    autoisotopes=.True.
+    lattvecs(:,1) =  -0.27010011   0.00000000   0.27010011  ! nm
+    lattvecs(:,2) =   0.00000000   0.27010011   0.27010011
+    lattvecs(:,3) =  -0.27010011   0.27010011   0.00000000
+    basis(:,1) =    0.50 0.50 0.50
+    basis(:,2) =    0.75 0.75 0.75
+    polar=.True.
+    born(:,1,1)=0.000000000000         0.000000000000         0.000000000000
+    born(:,2,1)=0.000000000000         0.000000000000         0.000000000000
+    born(:,3,1)=0.000000000000         0.000000000000         0.000000000000
+    born(:,1,2)=0.000000000000         0.000000000000         0.000000000000
+    born(:,2,2)=0.000000000000         0.000000000000         0.000000000000
+    born(:,3,2)=0.000000000000         0.000000000000         0.000000000000
+    epsilon(:,1)=13.061956976551          0.000000000000          0.000000000000
+    epsilon(:,2)=-0.000000000000         13.061956976551         -0.000000000000
+    epsilon(:,3)= 0.000000000000          0.000000000000         13.061956976551
+    epsilon0 = 11.7                    ! only need by electron-charged impurity scattering
+    T = 300.0
+    twod =.False.
+    subs_masses = 0
+    subs_conc = 0
+    bound_length = 1e12
+/
+
+&electrons
+    spindeg = 1  ! SOC
+    enref = 6.6069
+!    chempot = 6.6069
+    metallic = .False.
+    numbands = 16
+    indlowband = 9
+    indhighband = 12
+    indlowconduction = 9
+!needed for runlevel 0 only.
+    dopingtype = 'n'
+    numconc =  1
+    conclist = 2.75e14
+    numT = 6
+    Tlist = 50 100 150 200 250 300
+!needed for runlevel 0 only.
+/
+
+&numerics
+    qmesh = 6 6 6
+    mesh_ref = 4
+    fsthick = 0.3
+    datadumpdir = './scratch/'
+    read_gq2 = .False.
+    read_gk2 = .False.
+    read_V = .False.
+    read_W = .False.
+    tetrahedra = .True.
+    phe = .True.
+    phiso = .True.
+    phsubs = .False.
+    phbound = .False.
+    onlyphbte = .False.
+    elchimp = .False.
+    elbound = .False.
+    onlyebte = .False.
+    drag = .True.
+    maxiter = 50
+    conv_thres = 0.0001
+    runlevel = 0 ! for calculate chempot
+    plot_along_path = .True.
+/
+
+&wannier
+    coarse_qmesh = 6 6 6
+/
+
